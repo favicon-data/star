@@ -14,45 +14,36 @@ java {
 }
 
 repositories {
+	google()
 	mavenCentral()
 }
 
+
 dependencies {
-	implementation 'com.google.api-client:google-api-client:2.0.0'
-	implementation 'com.google.oauth-client:google-oauth-client-jetty:1.34.1'
-	implementation 'com.google.apis:google-api-services-calendar:v3-rev20220715-2.0.0'
-	implementation 'com.google.http-client:google-http-client-jackson2:1.39.2'
-	implementation 'com.slack.api:bolt:1.39.0'
-	implementation 'com.slack.api:bolt-servlet:1.39.0'
-	implementation 'com.slack.api:bolt-jetty:1.39.0'
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok:1.18.28'
-	annotationProcessor 'org.projectlombok:lombok:1.18.28'
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation group: 'org.glassfish.tyrus.bundles', name: 'tyrus-standalone-client', version: '1.10'
+//	implementation group: 'javax.websocket', name: 'javax.websocket-api', version: '1.1'
+//	implementation group: 'org.glassfish.tyrus', name: 'tyrus-server', version: '1.1'
+//	implementation group: 'org.glassfish.tyrus', name: 'tyrus-client', version: '1.1'
+//	implementation group: 'org.glassfish.tyrus', name: 'tyrus-container-grizzly', version: '1.1'
+	implementation 'com.slack.api:bolt:1.39.0' // 최신 Slack Bolt 라이브러리
+	implementation 'com.slack.api:bolt-socket-mode:1.39.0' // Socket Mode 지원 라이브러리
+	implementation 'javax.websocket:javax.websocket-api:1.1' // WebSocket API
+	implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final' // Hibernate Validator
+	implementation 'jakarta.validation:jakarta.validation-api:3.0.2' // Jakarta Validation API
+	implementation 'com.google.auth:google-auth-library-oauth2-http:1.14.0' // Google OAuth 라이브러리
+	implementation 'com.slack.api:bolt-servlet:1.39.0' // Servlet 지원
+	implementation 'com.slack.api:bolt-jetty:1.39.0' // Jetty 서버 지원
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2' // OpenAPI UI 지원
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client' // OAuth2 클라이언트 지원
+	implementation 'org.springframework.boot:spring-boot-starter-security' // 보안 관련 지원
+	compileOnly 'org.projectlombok:lombok:1.18.28' // Lombok 의존성
+	annotationProcessor 'org.projectlombok:lombok:1.18.28' // Lombok 어노테이션 프로세서
+	implementation 'org.springframework.boot:spring-boot-starter' // Spring Boot Starter
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' // 테스트 의존성
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher' // JUnit 런처
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
-//apply plugin: 'java'
-//apply plugin: 'application'
-//
-//mainClassName = 'CalendarQuickstart'
-//sourceCompatibility = 11
-//targetCompatibility = 11
-//version = '1.0'
-//
-//repositories {
-//	mavenCentral()
-//}
-//
-//dependencies {
-//	implementation 'com.google.api-client:google-api-client:2.0.0'
-//	implementation 'com.google.oauth-client:google-oauth-client-jetty:1.34.1'
-//	implementation 'com.google.apis:google-api-services-calendar:v3-rev20220715-2.0.0'
-//}
