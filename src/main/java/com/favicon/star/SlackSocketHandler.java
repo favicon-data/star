@@ -20,9 +20,11 @@ import java.util.List;
 @Component
 public class SlackSocketHandler {
     private final ScheduleService scheduleService;
+    private final SlackNotifier slackNotifier;
 
-    public SlackSocketHandler(ScheduleService scheduleService) {
+    public SlackSocketHandler(ScheduleService scheduleService, SlackNotifier slackNotifier) {
         this.scheduleService = scheduleService;
+        this.slackNotifier = slackNotifier;
     }
 
     @PostConstruct
@@ -85,10 +87,7 @@ public class SlackSocketHandler {
                     response = "❌ 지원하지 않는 명령어입니다.";
             }
 
-            ctx.client().chatPostMessage(r -> r
-                    .channel("#our-schedule")
-                    .text(response)
-            );
+            slackNotifier.sendMessage(response);
             return ctx.ack();
         });
 
