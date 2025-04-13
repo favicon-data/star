@@ -174,7 +174,9 @@ public class SlackSocketHandler {
     private String getMessageByType(String type) {
         return switch (type) {
             case "PR" -> "📢 PR이 올라왔어요! 리뷰 부탁드려요 💬";
+            case "pr" -> "📢 PR이 올라왔어요! 리뷰 부탁드려요 💬";
             case "LATE" -> "🔔 회의가 시작했어요! 빠른 참가 부탁드려요 🏃🏻";
+            case "late" -> "🔔 회의가 시작했어요! 빠른 참가 부탁드려요 🏃🏻";
             default -> null;
         };
     }

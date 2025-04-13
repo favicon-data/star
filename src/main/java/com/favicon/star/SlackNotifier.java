@@ -9,8 +9,7 @@ import java.util.Map;
 
 @Service
 class SlackNotifier {
-    @Value("${slack.webhook.url}")
-    private String slackWebhookUrl;
+    @Value("${SLACK_WEBHOOK_URL}") String slackWebhookUrl;
 
     private final RestTemplate restTemplate = new RestTemplate();
 
