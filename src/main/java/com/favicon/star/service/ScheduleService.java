@@ -1,4 +1,4 @@
-package com.favicon.star;
+package com.favicon.star.service;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,15 +1,16 @@
-package com.favicon.star;
+package com.favicon.star.service;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
-class SlackNotifier {
-    @Value("${SLACK_WEBHOOK_URL}") String slackWebhookUrl;
+@Component
+public class SlackNotifier {
+    @Value("${slack.webhook.url}")
+    private String slackWebhookUrl;
 
     private final RestTemplate restTemplate = new RestTemplate();
 
